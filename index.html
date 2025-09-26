@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Daily Motivation</title>
+</head>
+<body>
+  <h1>🌞 Your Daily Motivation</h1>
+  <button onclick="getQuote()">Get Inspired</button>
+  <p id="quote"></p>
+
+  <script>
+    async function getQuote() {
+      const res = await fetch("http://localhost:8000/Motivator/inspire", {
+        method: "POST"
+      });
+      const text = await res.text();
+      document.getElementById("quote").innerText = text;
+    }
+  </script>
+</body>
+</html>
